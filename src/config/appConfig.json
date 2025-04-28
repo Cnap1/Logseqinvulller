@@ -1,0 +1,15 @@
+{
+  "categories": [
+    "Personal",
+    "Work",
+    "Health",
+    "Learning",
+    "Projects"
+  ],
+  "entryTypes": [
+    "Journal Item",
+    "Note",
+    "Idea",
+    "Task"
+  ]
+}
