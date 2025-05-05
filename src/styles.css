@@ -39,7 +39,7 @@ body {
     background-color: #1e3799;
   }
 
-  /* Add these styles to src/styles.css */
+
 
 .form-group {
   margin-bottom: 15px;
@@ -76,4 +76,289 @@ textarea {
 
 .btn-secondary {
   background-color: #718093;
+}
+
+/* Items list view styles */
+
+.filters {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.item-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.item-type, .item-category {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background-color: #e0e0e0;
+}
+
+.item-title {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.item-preview {
+  flex-grow: 1;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 14px;
+}
+
+.item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.item-date {
+  font-size: 12px;
+  color: #777;
+}
+
+.item-actions button {
+  font-size: 12px;
+  padding: 4px 8px;
+  margin-left: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.item-actions button:hover {
+  background-color: #e0e0e0;
+}
+
+.view-item {
+  color: #4a69bd;
+}
+
+.delete-item {
+  color: #e55039;
+}
+
+.no-items {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+/* Item details view */
+.item-details {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.item-meta {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.content-text {
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* ##setting */
+/* Settings page styles */
+
+
+.settings-section {
+  margin-bottom: 25px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.settings-section h2 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 18px;
+}
+
+.settings-item {
+  display: flex;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.settings-item input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.remove-btn {
+  margin-left: 8px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.add-btn {
+  margin-top: 10px;
+  background-color: #4a69bd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.btn-warning {
+  background-color: #fa983a;
+}
+
+
+/* about */
+
+/* About page styles */
+.about-section {
+  margin-bottom: 25px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Table styles for item list */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.items-table th, 
+.items-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.items-table th {
+  background-color: #4a69bd;
+  color: white;
+  font-weight: normal;
+}
+
+.items-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.btn-sm {
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+.view-item {
+  background-color: #4a69bd;
+  color: white;
+}
+
+.edit-item {
+  background-color: #f6b93b;
+  color: white;
+}
+
+.delete-item {
+  background-color: #e55039;
+  color: white;
+}
+
+.about-section h2 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 20px;
+  color: #4a69bd;
+}
+
+.about-section h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.about-section p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.about-section ul {
+  padding-left: 20px;
+}
+
+.about-section li {
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+/* Export options styles */
+.export-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.export-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#exportDataBtn {
+  margin-top: 10px;
 }

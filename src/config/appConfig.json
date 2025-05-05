@@ -7,9 +7,36 @@
     "Projects"
   ],
   "entryTypes": [
-    "Journal Item",
+    "Journal",
     "Note",
     "Idea",
     "Task"
-  ]
+  ],
+  "tags": [
+  "important",
+  "reference",
+  "meeting",
+  "research",
+  "article",
+  "book",
+  "tutorial",
+  "idea",
+  "followup",
+  "question",
+  "pending",
+  "completed",
+  "blocked",
+  "documentation",
+  "code",
+  "bug",
+  "feature",
+  "goal",
+  "daily",
+  "weekly",
+  "monthly",
+  "habit",
+  "contact",
+  "quote",
+  "insight"
+]
 }
