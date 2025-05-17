@@ -1,7 +1,7 @@
-
 // src/app.js
 const exportUtils = require('./utils/exportUtils.js');
 const appConfig = require('./config/appConfig.json');
+const { parseCSV } = require('./utils/csvUtils.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app');
@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderAddItemPage() {
-      // Get the updated config that includes any custom categories/tags
+    console.log('renderAddItemPage called'); // Debugging
     const localConfig = JSON.parse(localStorage.getItem('localAppConfig') || JSON.stringify(appConfig));
+    const moodData = parseCSV(); // Function to parse the CSV file
+  
     app.innerHTML = `
       <div class="container">
         <h1>Add New Item</h1>
@@ -39,13 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
             </select>
           </div>
           
-          <div class="form-group">
-            <label for="itemCategory">Category:</label>
-            <select id="itemCategory" required>
-              ${localConfig.categories.map(cat => `<option value="${cat}">${cat}</option>`).join('')}
-            </select>
+          <div id="moodFields" style="display: none;">
+            <div class="form-group">
+              <label for="moodPrimary">Primary Mood:</label>
+              <select id="moodPrimary">
+                ${[...new Set(moodData.map(row => row[2]))].map(primary => `<option value="${primary}">${primary}</option>`).join('')}
+              </select>
+            </div>
+            <div id="moodSecondaryContainer" class="form-group"></div>
+            <div id="moodTertiaryContainer" class="form-group"></div>
           </div>
-          
+  
           <div class="form-group">
             <label for="itemTitle">Title:</label>
             <input type="text" id="itemTitle" required>
@@ -56,16 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <textarea id="itemContent" required></textarea>
           </div>
           
-          <div class="form-group" id="dueDateContainer" style="display: none;">
-            <label for="itemDueDate">Due Date:</label>
-            <input type="date" id="itemDueDate">
-          </div>
-          
-          <div class="form-group">
-            <label for="itemTags">Tags (comma separated):</label>
-            <input type="text" id="itemTags">
-          </div>
-          
           <div class="form-actions">
             <button type="button" id="backButton" class="btn btn-secondary">Back</button>
             <button type="submit" class="btn btn-primary">Save Item</button>
@@ -73,44 +69,73 @@ document.addEventListener('DOMContentLoaded', () => {
         </form>
       </div>
     `;
-    
-    // Show/hide due date field based on item type
-    document.getElementById('itemType').addEventListener('change', function() {
-      const dueDate = document.getElementById('dueDateContainer');
-      if (this.value === 'Task') {
-        dueDate.style.display = 'block';
+  
+    // Show/hide mood fields based on item type
+    document.getElementById('itemType').addEventListener('change', function () {
+      const moodFields = document.getElementById('moodFields');
+      if (this.value === 'Mood') {
+        moodFields.style.display = 'block';
       } else {
-        dueDate.style.display = 'none';
+        moodFields.style.display = 'none';
       }
     });
-    
+  
+    // Populate secondary and tertiary mood options
+    document.getElementById('moodPrimary').addEventListener('change', function () {
+      const selectedPrimary = this.value;
+      const secondaryOptions = [...new Set(moodData.filter(row => row[2] === selectedPrimary).map(row => row[1]))];
+      const secondaryContainer = document.getElementById('moodSecondaryContainer');
+      secondaryContainer.innerHTML = `
+        <label for="moodSecondary">Secondary Mood:</label>
+        <select id="moodSecondary">
+          ${secondaryOptions.map(secondary => `<option value="${secondary}">${secondary}</option>`).join('')}
+        </select>
+      `;
+  
+      // Update tertiary options when secondary mood changes
+      document.getElementById('moodSecondary').addEventListener('change', function () {
+        const selectedSecondary = this.value;
+        const tertiaryOptions = moodData
+          .filter(row => row[2] === selectedPrimary && row[1] === selectedSecondary)
+          .map(row => row[0]);
+        const tertiaryContainer = document.getElementById('moodTertiaryContainer');
+        tertiaryContainer.innerHTML = `
+          <label for="moodTertiary">Tertiary Mood:</label>
+          ${tertiaryOptions.map(tertiary => `<button type="button" class="btn mood-btn" data-value="${tertiary}">${tertiary}</button>`).join('')}
+        `;
+  
+        // Handle tertiary mood button clicks
+        document.querySelectorAll('.mood-btn').forEach(button => {
+          button.addEventListener('click', function () {
+            alert(`Selected Mood: ${this.dataset.value}`);
+          });
+        });
+      });
+    });
+  
     // Back button functionality
     document.getElementById('backButton').addEventListener('click', renderHomePage);
-    
+  
     // Form submission
-    document.getElementById('addItemForm').addEventListener('submit', function(e) {
+    document.getElementById('addItemForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      
       const newItem = {
         id: Date.now(),
         type: document.getElementById('itemType').value,
-        category: document.getElementById('itemCategory').value,
         title: document.getElementById('itemTitle').value,
         content: document.getElementById('itemContent').value,
-        tags: document.getElementById('itemTags').value.split(',').map(tag => tag.trim()).filter(tag => tag),
+        mood: {
+          primary: document.getElementById('moodPrimary')?.value || null,
+          secondary: document.getElementById('moodSecondary')?.value || null,
+          tertiary: document.querySelector('.mood-btn.selected')?.dataset.value || null,
+        },
         createdAt: new Date().toISOString(),
       };
-      
-      // Add due date if it's a task
-      if (newItem.type === 'Task') {
-        newItem.dueDate = document.getElementById('itemDueDate').value;
-      }
-      
-      // Save to localStorage
+  
       const items = JSON.parse(localStorage.getItem('logseqItems') || '[]');
       items.push(newItem);
       localStorage.setItem('logseqItems', JSON.stringify(items));
-      
+  
       alert('Item saved successfully!');
       renderHomePage();
     });

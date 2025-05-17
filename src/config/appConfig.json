@@ -8,9 +8,9 @@
   ],
   "entryTypes": [
     "Journal",
-    "Note",
+    "Mood",
     "Idea",
-    "Task"
+    "To-do"
   ],
   "tags": [
   "important",
