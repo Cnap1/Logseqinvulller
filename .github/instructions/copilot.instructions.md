@@ -4,6 +4,25 @@ applyTo: '**'
 LogseqInvuller Project AI Instructions
 Core Context Guidelines
 
+folder structure: logseq-invuller
+logseq-notes-app/
+├── src/                         # Source code
+│   ├── assets/                  # Static assets
+│   │   └── emotion-wheel.csv
+│   ├── components/              # UI components (currently empty)
+│   ├── config/                  # Configuration
+│   │   └── appConfig.json       # App settings
+│   ├── utils/                   # Utility functions
+│   │   ├── csvUtils.js          # CSV parsing
+│   │   └── exportUtils.js       # Export functions
+│   ├── app.js                   # Main application logic
+│   └── styles.css               # Global styles
+├── dist/                        # Built files (gitignored)
+├── node_modules/                # Dependencies (gitignored)
+├── index.html                   # Entry point
+├── webpack.config.js            # Build configuration
+└── package.json                 # Project metadata
+
 Specify current project structure: JS SPA with localStorage persistence
 Reference key components: exportUtils, appConfig, renderFunctions
 Always define input state and expected output state

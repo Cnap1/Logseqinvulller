@@ -1,0 +1,1385 @@
+{
+  "emotions": [
+    {
+      "primary": {
+        "en": "Sad",
+        "nl": "Verdrietig"
+      },
+      "secondaryEmotions": [
+        {
+          "secondary": {
+            "en": "Hurt",
+            "nl": "Gekwetst"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Affected",
+              "nl": "Geraakt",
+              "source": "Added"
+            },
+            {
+              "en": "Painful",
+              "nl": "Smartelijk",
+              "source": "Added"
+            },
+            {
+              "en": "Bitter",
+              "nl": "Bitter",
+              "source": "Original"
+            },
+            {
+              "en": "Humiliated",
+              "nl": "Vernederd",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Guilty",
+            "nl": "Schuldig"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Ashamed",
+              "nl": "Schaamtevol",
+              "source": "Added"
+            },
+            {
+              "en": "Ashamed",
+              "nl": "Beschaamd",
+              "source": "Original"
+            },
+            {
+              "en": "Guilty",
+              "nl": "Schuldig",
+              "source": "Original"
+            },
+            {
+              "en": "Remorseful",
+              "nl": "Berouwvol",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Despair",
+            "nl": "Wanhoop"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Desperate",
+              "nl": "Wanhopig",
+              "source": "Added"
+            },
+            {
+              "en": "Despair",
+              "nl": "Wanhoop",
+              "source": "Original"
+            },
+            {
+              "en": "Grief",
+              "nl": "Verdriet",
+              "source": "Original"
+            },
+            {
+              "en": "Powerless",
+              "nl": "Machteloos",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Depressed",
+            "nl": "Depressief"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Discouraged",
+              "nl": "Moedeloos",
+              "source": "Added"
+            },
+            {
+              "en": "Downcast",
+              "nl": "Bedrukt",
+              "source": "Added"
+            },
+            {
+              "en": "Gloomy",
+              "nl": "Somber",
+              "source": "Added"
+            },
+            {
+              "en": "Melancholic",
+              "nl": "Melancholiek",
+              "source": "Added"
+            },
+            {
+              "en": "Miserable",
+              "nl": "Miserabel",
+              "source": "Added"
+            },
+            {
+              "en": "Sad",
+              "nl": "Treurig",
+              "source": "Added"
+            },
+            {
+              "en": "Sorrowful",
+              "nl": "Bedroefd",
+              "source": "Added"
+            },
+            {
+              "en": "Unhappy",
+              "nl": "Ongelukkig",
+              "source": "Added"
+            },
+            {
+              "en": "Wistful",
+              "nl": "Weemoedig",
+              "source": "Added"
+            },
+            {
+              "en": "Depressed",
+              "nl": "Depressief",
+              "source": "Original"
+            },
+            {
+              "en": "Hurt",
+              "nl": "Gekwetst",
+              "source": "Original"
+            },
+            {
+              "en": "Scared",
+              "nl": "Bang",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Empty",
+            "nl": "Leeg"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Exhausted",
+              "nl": "Uitgeput",
+              "source": "Added"
+            },
+            {
+              "en": "Listless",
+              "nl": "Futloos",
+              "source": "Added"
+            },
+            {
+              "en": "Quiet",
+              "nl": "Stil",
+              "source": "Added"
+            },
+            {
+              "en": "Tired",
+              "nl": "Moe",
+              "source": "Added"
+            },
+            {
+              "en": "Useless",
+              "nl": "Nutteloos",
+              "source": "Added"
+            },
+            {
+              "en": "Empty",
+              "nl": "Leeg",
+              "source": "Original"
+            },
+            {
+              "en": "Rejected",
+              "nl": "Afgewezen",
+              "source": "Original"
+            },
+            {
+              "en": "Weak",
+              "nl": "Zwak",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Vulnerable",
+            "nl": "Kwetsbaar"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Shy",
+              "nl": "Verlegen",
+              "source": "Added"
+            },
+            {
+              "en": "Fragile",
+              "nl": "Breekbaar",
+              "source": "Original"
+            },
+            {
+              "en": "Victimized",
+              "nl": "Slachtoffer gemaakt",
+              "source": "Original"
+            },
+            {
+              "en": "Vulnerable",
+              "nl": "Kwetsbaar",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Lonely",
+            "nl": "Eenzaam"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Abandoned",
+              "nl": "Verlaten",
+              "source": "Original"
+            },
+            {
+              "en": "Isolated",
+              "nl": "Geïsoleerd",
+              "source": "Original"
+            },
+            {
+              "en": "Lonely",
+              "nl": "Eenzaam",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Inferior",
+            "nl": "Minderwaardig"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Anxious",
+              "nl": "Angstig",
+              "source": "Original"
+            },
+            {
+              "en": "Insecure",
+              "nl": "Onzeker",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Regretful",
+            "nl": "Spijtig"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Let down",
+              "nl": "In de steek gelaten",
+              "source": "Original"
+            },
+            {
+              "en": "Threatened",
+              "nl": "Bedreigd",
+              "source": "Original"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "primary": {
+        "en": "Fearful",
+        "nl": "Angstig"
+      },
+      "secondaryEmotions": [
+        {
+          "secondary": {
+            "en": "Scared",
+            "nl": "Bang"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Afraid",
+              "nl": "Bevreesd",
+              "source": "Added"
+            },
+            {
+              "en": "Panicky",
+              "nl": "Paniekerig",
+              "source": "Added"
+            },
+            {
+              "en": "Terrified",
+              "nl": "Doodsbang",
+              "source": "Added"
+            },
+            {
+              "en": "Frightened",
+              "nl": "Verschrikt",
+              "source": "Original"
+            },
+            {
+              "en": "Helpless",
+              "nl": "Hulpeloos",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Anxious",
+            "nl": "Angstig"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Breathless",
+              "nl": "Ademloos",
+              "source": "Added"
+            },
+            {
+              "en": "Confined",
+              "nl": "Benauwd",
+              "source": "Added"
+            },
+            {
+              "en": "Nervous",
+              "nl": "Nerveus",
+              "source": "Added"
+            },
+            {
+              "en": "Restless",
+              "nl": "Onrustig",
+              "source": "Added"
+            },
+            {
+              "en": "Shaky",
+              "nl": "Beverig",
+              "source": "Added"
+            },
+            {
+              "en": "Tense",
+              "nl": "Gespannen",
+              "source": "Added"
+            },
+            {
+              "en": "Worried",
+              "nl": "Bezorgd",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Insecure",
+            "nl": "Onzeker"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Dependent",
+              "nl": "Afhankelijk",
+              "source": "Added"
+            },
+            {
+              "en": "Uncomfortable",
+              "nl": "Onbehaaglijk",
+              "source": "Added"
+            },
+            {
+              "en": "Uncomfortable",
+              "nl": "Ongemakkelijk",
+              "source": "Added"
+            },
+            {
+              "en": "Inadequate",
+              "nl": "Ontoereikend",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Stressed",
+            "nl": "Gestrest"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Hurried",
+              "nl": "Gejaagd",
+              "source": "Added"
+            },
+            {
+              "en": "Impatient",
+              "nl": "Ongeduldig",
+              "source": "Added"
+            },
+            {
+              "en": "Overwhelmed",
+              "nl": "Overweldigd",
+              "source": "Original"
+            },
+            {
+              "en": "Pressured",
+              "nl": "Onder druk",
+              "source": "Original"
+            },
+            {
+              "en": "Rushed",
+              "nl": "Gehaast",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Overwhelmed",
+            "nl": "Overweldigd"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Upset",
+              "nl": "Overstuur",
+              "source": "Added"
+            },
+            {
+              "en": "Out of control",
+              "nl": "Buiten controle",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Bored",
+            "nl": "Verveeld"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Apathetic",
+              "nl": "Apathisch",
+              "source": "Original"
+            },
+            {
+              "en": "Indifferent",
+              "nl": "Onverschillig",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Threatened",
+            "nl": "Bedreigd"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Betrayed",
+              "nl": "Verraden",
+              "source": "Original"
+            },
+            {
+              "en": "Exposed",
+              "nl": "Blootgesteld",
+              "source": "Original"
+            },
+            {
+              "en": "Nervous",
+              "nl": "Zenuwachtig",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Rejected",
+            "nl": "Afgewezen"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Excluded",
+              "nl": "Buitengesloten",
+              "source": "Original"
+            },
+            {
+              "en": "Persecuted",
+              "nl": "Vervolgd",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Weak",
+            "nl": "Zwak"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Inferior",
+              "nl": "Minderwaardig",
+              "source": "Original"
+            },
+            {
+              "en": "Insignificant",
+              "nl": "Onbelangrijk",
+              "source": "Original"
+            },
+            {
+              "en": "Worthless",
+              "nl": "Waardeloos",
+              "source": "Original"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "primary": {
+        "en": "Angry",
+        "nl": "Boos"
+      },
+      "secondaryEmotions": [
+        {
+          "secondary": {
+            "en": "Aggressive",
+            "nl": "Agressief"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Agitated",
+              "nl": "Geagiteerd",
+              "source": "Added"
+            },
+            {
+              "en": "Furious",
+              "nl": "Woedend",
+              "source": "Original"
+            },
+            {
+              "en": "Indignant",
+              "nl": "Verontwaardigd",
+              "source": "Original"
+            },
+            {
+              "en": "Jealous",
+              "nl": "Jaloers",
+              "source": "Original"
+            },
+            {
+              "en": "Violated",
+              "nl": "Geschonden",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Mad",
+            "nl": "Boos"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Angry",
+              "nl": "Kwaad",
+              "source": "Added"
+            },
+            {
+              "en": "Grumpy",
+              "nl": "Chagrijnig",
+              "source": "Added"
+            },
+            {
+              "en": "Aggressive",
+              "nl": "Agressief",
+              "source": "Original"
+            },
+            {
+              "en": "Disrespected",
+              "nl": "Respectloos behandeld",
+              "source": "Original"
+            },
+            {
+              "en": "Mad",
+              "nl": "Boos",
+              "source": "Original"
+            },
+            {
+              "en": "Resentful",
+              "nl": "Verbitterd",
+              "source": "Original"
+            },
+            {
+              "en": "Ridiculed",
+              "nl": "Bespot",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Distant",
+            "nl": "Afstandelijk"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Cold",
+              "nl": "Koud",
+              "source": "Added"
+            },
+            {
+              "en": "Cool",
+              "nl": "Koel",
+              "source": "Added"
+            },
+            {
+              "en": "Annoyed",
+              "nl": "Geïrriteerd",
+              "source": "Original"
+            },
+            {
+              "en": "Withdrawn",
+              "nl": "Teruggetrokken",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Frustrated",
+            "nl": "Gefrustreerd"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Dissatisfied",
+              "nl": "Ontevreden",
+              "source": "Added"
+            },
+            {
+              "en": "Irked",
+              "nl": "Geprikkeld",
+              "source": "Added"
+            },
+            {
+              "en": "Hostile",
+              "nl": "Vijandig",
+              "source": "Original"
+            },
+            {
+              "en": "Infuriated",
+              "nl": "Woest",
+              "source": "Original"
+            },
+            {
+              "en": "Provoked",
+              "nl": "Geprovoceerd",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Dismissive",
+            "nl": "Afwijzend"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Dismissive",
+              "nl": "Afwijzend",
+              "source": "Original"
+            },
+            {
+              "en": "Judgmental",
+              "nl": "Veroordelend",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Embarrassed",
+            "nl": "Beschaamd"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Embarrassed",
+              "nl": "Opgelaten",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Critical",
+            "nl": "Kritisch"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Numb",
+              "nl": "Verdoofd",
+              "source": "Original"
+            },
+            {
+              "en": "Skeptical",
+              "nl": "Sceptisch",
+              "source": "Original"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "primary": {
+        "en": "Happy",
+        "nl": "Blij"
+      },
+      "secondaryEmotions": [
+        {
+          "secondary": {
+            "en": "Playful",
+            "nl": "Speels"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Amused",
+              "nl": "Geamuseerd",
+              "source": "Added"
+            },
+            {
+              "en": "Jolly",
+              "nl": "Jolig",
+              "source": "Added"
+            },
+            {
+              "en": "Young",
+              "nl": "Jong",
+              "source": "Added"
+            },
+            {
+              "en": "Aroused",
+              "nl": "Opgewonden",
+              "source": "Original"
+            },
+            {
+              "en": "Cheeky",
+              "nl": "Brutaal",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Optimistic",
+            "nl": "Optimistisch"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Animated",
+              "nl": "Bezield",
+              "source": "Added"
+            },
+            {
+              "en": "Hopeful",
+              "nl": "Hoopvol",
+              "source": "Original"
+            },
+            {
+              "en": "Inspired",
+              "nl": "Geïnspireerd",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Content",
+            "nl": "Tevreden"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Appreciative",
+              "nl": "Erkentelijk",
+              "source": "Added"
+            },
+            {
+              "en": "Blissful",
+              "nl": "Gelukzalig",
+              "source": "Added"
+            },
+            {
+              "en": "Blissful",
+              "nl": "Zalig",
+              "source": "Added"
+            },
+            {
+              "en": "Carefree",
+              "nl": "Onbezorgd",
+              "source": "Added"
+            },
+            {
+              "en": "Comfortable",
+              "nl": "Comfortabel",
+              "source": "Added"
+            },
+            {
+              "en": "Cozy",
+              "nl": "Behaaglijk",
+              "source": "Added"
+            },
+            {
+              "en": "Fulfilled",
+              "nl": "Vervuld",
+              "source": "Added"
+            },
+            {
+              "en": "Grateful",
+              "nl": "Dankbaar",
+              "source": "Added"
+            },
+            {
+              "en": "Pleasant",
+              "nl": "Plezierig",
+              "source": "Added"
+            },
+            {
+              "en": "Relieved",
+              "nl": "Opgelucht",
+              "source": "Added"
+            },
+            {
+              "en": "Satisfied",
+              "nl": "Bevredigd",
+              "source": "Added"
+            },
+            {
+              "en": "Satisfied",
+              "nl": "Voldaan",
+              "source": "Added"
+            },
+            {
+              "en": "Free",
+              "nl": "Vrij",
+              "source": "Original"
+            },
+            {
+              "en": "Joyful",
+              "nl": "Vreugdevol",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Trusting",
+            "nl": "Vertrouwend"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Beloved",
+              "nl": "Geliefd",
+              "source": "Added"
+            },
+            {
+              "en": "Connected",
+              "nl": "Verbonden",
+              "source": "Added"
+            },
+            {
+              "en": "Familiar",
+              "nl": "Vertrouwd",
+              "source": "Added"
+            },
+            {
+              "en": "Moved",
+              "nl": "Ontroerd",
+              "source": "Added"
+            },
+            {
+              "en": "Tender",
+              "nl": "Teder",
+              "source": "Added"
+            },
+            {
+              "en": "Intimate",
+              "nl": "Intiem",
+              "source": "Original"
+            },
+            {
+              "en": "Sensitive",
+              "nl": "Gevoelig",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Proud",
+            "nl": "Trots"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Competent",
+              "nl": "Competent",
+              "source": "Added"
+            },
+            {
+              "en": "Self-satisfied",
+              "nl": "Zelfvoldaan",
+              "source": "Added"
+            },
+            {
+              "en": "Confident",
+              "nl": "Zelfverzekerd",
+              "source": "Original"
+            },
+            {
+              "en": "Successful",
+              "nl": "Succesvol",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Excited",
+            "nl": "Opgewonden"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Delighted",
+              "nl": "Verrukt",
+              "source": "Added"
+            },
+            {
+              "en": "Ecstatic",
+              "nl": "Extatisch",
+              "source": "Added"
+            },
+            {
+              "en": "Elated",
+              "nl": "Opgetogen",
+              "source": "Added"
+            },
+            {
+              "en": "Enthusiastic",
+              "nl": "Enthousiast",
+              "source": "Added"
+            },
+            {
+              "en": "Exuberant",
+              "nl": "Uitgelaten",
+              "source": "Added"
+            },
+            {
+              "en": "Lively",
+              "nl": "Levendig",
+              "source": "Added"
+            },
+            {
+              "en": "Overjoyed",
+              "nl": "Dolblij",
+              "source": "Added"
+            },
+            {
+              "en": "Sparkling",
+              "nl": "Sprankelend",
+              "source": "Added"
+            },
+            {
+              "en": "Vibrant",
+              "nl": "Bruisend",
+              "source": "Added"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Peaceful",
+            "nl": "Vredig"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Gentle",
+              "nl": "Zacht",
+              "source": "Added"
+            },
+            {
+              "en": "Meek",
+              "nl": "Zachtmoedig",
+              "source": "Added"
+            },
+            {
+              "en": "Relaxed",
+              "nl": "Ontspannen",
+              "source": "Added"
+            },
+            {
+              "en": "Safe",
+              "nl": "Veilig",
+              "source": "Added"
+            },
+            {
+              "en": "Loving",
+              "nl": "Liefdevol",
+              "source": "Original"
+            },
+            {
+              "en": "Tranquil",
+              "nl": "Rustig",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Powerful",
+            "nl": "Krachtig"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Glorious",
+              "nl": "Glorieus",
+              "source": "Added"
+            },
+            {
+              "en": "Passionate",
+              "nl": "Vurig",
+              "source": "Added"
+            },
+            {
+              "en": "Strong",
+              "nl": "Sterk",
+              "source": "Added"
+            },
+            {
+              "en": "Courageous",
+              "nl": "Moedig",
+              "source": "Original"
+            },
+            {
+              "en": "Creative",
+              "nl": "Creatief",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Accepted",
+            "nl": "Geaccepteerd"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Valuable",
+              "nl": "Waardevol",
+              "source": "Added"
+            },
+            {
+              "en": "Respected",
+              "nl": "Gerespecteerd",
+              "source": "Original"
+            },
+            {
+              "en": "Valued",
+              "nl": "Gewaardeerd",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Interested",
+            "nl": "Geïnteresseerd"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Curious",
+              "nl": "Benieuwd",
+              "source": "Original"
+            },
+            {
+              "en": "Inquisitive",
+              "nl": "Nieuwsgierig",
+              "source": "Original"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "primary": {
+        "en": "Bad",
+        "nl": "Slecht"
+      },
+      "secondaryEmotions": [
+        {
+          "secondary": {
+            "en": "Startled",
+            "nl": "Geschrokken"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Dismayed",
+              "nl": "Onthutst",
+              "source": "Added"
+            },
+            {
+              "en": "Dismayed",
+              "nl": "Ontsteld",
+              "source": "Original"
+            },
+            {
+              "en": "Shocked",
+              "nl": "Geshockeerd",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Surprised",
+            "nl": "Verrast"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Dumbfounded",
+              "nl": "Verbluft",
+              "source": "Added"
+            },
+            {
+              "en": "Sleepy",
+              "nl": "Slaperig",
+              "source": "Original"
+            },
+            {
+              "en": "Unfocused",
+              "nl": "Ongeconcentreerd",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Confused",
+            "nl": "Verward"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Perplexed",
+              "nl": "Perplex",
+              "source": "Added"
+            },
+            {
+              "en": "Turbulent",
+              "nl": "Onstuimig",
+              "source": "Added"
+            },
+            {
+              "en": "Disillusioned",
+              "nl": "Gedesillusioneerd",
+              "source": "Original"
+            },
+            {
+              "en": "Perplexed",
+              "nl": "Verbijsterd",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Amazed",
+            "nl": "Verbaasd"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Astonished",
+              "nl": "Versteld",
+              "source": "Original"
+            },
+            {
+              "en": "Awe",
+              "nl": "Ontzag",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Excited",
+            "nl": "Opgewonden"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Eager",
+              "nl": "Gretig",
+              "source": "Original"
+            },
+            {
+              "en": "Energetic",
+              "nl": "Energiek",
+              "source": "Original"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "primary": {
+        "en": "Disgusted",
+        "nl": "Walgend"
+      },
+      "secondaryEmotions": [
+        {
+          "secondary": {
+            "en": "Repelled",
+            "nl": "Afgestoten"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Used",
+              "nl": "Gebruikt",
+              "source": "Added"
+            },
+            {
+              "en": "Detested",
+              "nl": "Verafschuwd",
+              "source": "Original"
+            },
+            {
+              "en": "Repelled",
+              "nl": "Afgestoten",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Appalled",
+            "nl": "Ontzet"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Appalled",
+              "nl": "Ontzet",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Awful",
+            "nl": "Verschrikkelijk"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Awful",
+              "nl": "Verschrikkelijk",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Disapproving",
+            "nl": "Afkeurend"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Critical",
+              "nl": "Kritisch",
+              "source": "Original"
+            },
+            {
+              "en": "Distant",
+              "nl": "Afstandelijk",
+              "source": "Original"
+            },
+            {
+              "en": "Frustrated",
+              "nl": "Gefrustreerd",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Disappointed",
+            "nl": "Teleurgesteld"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Disappointed",
+              "nl": "Teleurgesteld",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Hesitant",
+            "nl": "Aarzelend"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Hesitant",
+              "nl": "Aarzelend",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Horrified",
+            "nl": "Geschokt"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Horrified",
+              "nl": "Angstaanjagend",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Nauseated",
+            "nl": "Misselijk"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Nauseated",
+              "nl": "Misselijk",
+              "source": "Original"
+            }
+          ]
+        },
+        {
+          "secondary": {
+            "en": "Revolted",
+            "nl": "Weerzinwekkend"
+          },
+          "tertiaryEmotions": [
+            {
+              "en": "Revolted",
+              "nl": "Weerzinwekkend",
+              "source": "Original"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "totalPrimary": 6,
+    "totalTertiary": 187,
+    "languages": ["en", "nl"],
+    "lastUpdated": "2025-05-17T13:56:09.306Z"
+  }
+}

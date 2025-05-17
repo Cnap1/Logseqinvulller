@@ -1,4 +1,3 @@
-// 
 const path = require('path');
 
 module.exports = {
@@ -7,5 +6,5 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  mode: 'development'
+  mode: 'development',
 };

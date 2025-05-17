@@ -1,7 +1,7 @@
 // src/app.js
 const exportUtils = require('./utils/exportUtils.js');
 const appConfig = require('./config/appConfig.json');
-const { parseCSV } = require('./utils/csvUtils.js');
+const { getEmotionData, getMatchingEmoticons } = require('./utils/emotionUtils.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app');
@@ -26,119 +26,456 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderAddItemPage() {
-    console.log('renderAddItemPage called'); // Debugging
-    const localConfig = JSON.parse(localStorage.getItem('localAppConfig') || JSON.stringify(appConfig));
-    const moodData = parseCSV(); // Function to parse the CSV file
-  
-    app.innerHTML = `
-      <div class="container">
-        <h1>Add New Item</h1>
-        <form id="addItemForm">
+  console.log('renderAddItemPage called'); // Debugging
+  const localConfig = JSON.parse(localStorage.getItem('localAppConfig') || JSON.stringify(appConfig));
+  const emotionData = getEmotionData(); // Get data from the JSON file
+
+  // Define emotion icons mapping with scores
+  const emotionIcons = [
+    { emoji: '🤮', unicode: 'U+1F92E', score: 5, primary: 'Disgust', secondary: 'Revulsion', arousal: 'high' },
+    { emoji: '🤢', unicode: 'U+1F922', score: 8, primary: 'Disgust', secondary: 'Nausea', arousal: 'medium' },
+    { emoji: '😡', unicode: 'U+1F621', score: 10, primary: 'Anger', secondary: 'Rage', arousal: 'high' },
+    { emoji: '🤬', unicode: 'U+1F92C', score: 12, primary: 'Anger', secondary: 'Fury', arousal: 'high' },
+    { emoji: '😠', unicode: 'U+1F620', score: 15, primary: 'Anger', secondary: 'Annoyance', arousal: 'medium' },
+    { emoji: '😭', unicode: 'U+1F62D', score: 18, primary: 'Sadness', secondary: 'Grief', arousal: 'high' },
+    { emoji: '😨', unicode: 'U+1F628', score: 20, primary: 'Fear', secondary: 'Terror', arousal: 'high' },
+    { emoji: '🫨', unicode: 'U+1FAE8', score: 22, primary: 'Fear', secondary: 'Anxiety', arousal: 'high' },
+    { emoji: '😱', unicode: 'U+1F631', score: 25, primary: 'Fear', secondary: 'Shock', arousal: 'high' },
+    { emoji: '😰', unicode: 'U+1F630', score: 28, primary: 'Fear', secondary: 'Anxiety', arousal: 'medium' },
+    { emoji: '😖', unicode: 'U+1F616', score: 30, primary: 'Disgust', secondary: 'Suffering', arousal: 'medium' },
+    { emoji: '🥹', unicode: 'U+1F979', score: 32, primary: 'Sadness', secondary: 'Hurt', arousal: 'medium' },
+    { emoji: '😢', unicode: 'U+1F622', score: 35, primary: 'Sadness', secondary: 'Sorrow', arousal: 'medium' },
+    { emoji: '🫠', unicode: 'U+1FAE0', score: 37, primary: 'Sadness', secondary: 'Resignation', arousal: 'low' },
+    { emoji: '😣', unicode: 'U+1F623', score: 38, primary: 'Sadness', secondary: 'Struggle', arousal: 'medium' },
+    { emoji: '😫', unicode: 'U+1F62B', score: 40, primary: 'Sadness', secondary: 'Exhaustion', arousal: 'medium' },
+    { emoji: '😩', unicode: 'U+1F629', score: 42, primary: 'Sadness', secondary: 'Weariness', arousal: 'medium' },
+    { emoji: '🥲', unicode: 'U+1F972', score: 45, primary: 'Sadness', secondary: 'Hope', arousal: 'low' },
+    { emoji: '😐', unicode: 'U+1F610', score: 48, primary: 'Neutral', secondary: 'Blank', arousal: 'low' },
+    { emoji: '😑', unicode: 'U+1F611', score: 50, primary: 'Neutral', secondary: 'Expressionless', arousal: 'low' },
+    { emoji: '😶', unicode: 'U+1F636', score: 52, primary: 'Neutral', secondary: 'Empty', arousal: 'low' },
+    { emoji: '🫥', unicode: 'U+1FAE5', score: 54, primary: 'Neutral', secondary: 'Hidden', arousal: 'low' },
+    { emoji: '😬', unicode: 'U+1F62C', score: 55, primary: 'Neutral', secondary: 'Awkward', arousal: 'medium' },
+    { emoji: '🤨', unicode: 'U+1F928', score: 56, primary: 'Surprise', secondary: 'Skepticism', arousal: 'low' },
+    { emoji: '😕', unicode: 'U+1F615', score: 58, primary: 'Surprise', secondary: 'Confusion', arousal: 'low' },
+    { emoji: '🫣', unicode: 'U+1FAE3', score: 60, primary: 'Surprise', secondary: 'Curiosity', arousal: 'medium' },
+    { emoji: '🙂', unicode: 'U+1F642', score: 62, primary: 'Joy', secondary: 'Mild_Happiness', arousal: 'low' },
+    { emoji: '😉', unicode: 'U+1F609', score: 65, primary: 'Joy', secondary: 'Playfulness', arousal: 'medium' },
+    { emoji: '😊', unicode: 'U+1F60A', score: 68, primary: 'Joy', secondary: 'Contentment', arousal: 'low' },
+    { emoji: '😇', unicode: 'U+1F607', score: 70, primary: 'Joy', secondary: 'Serenity', arousal: 'low' },
+    { emoji: '😌', unicode: 'U+1F60C', score: 72, primary: 'Joy', secondary: 'Peace', arousal: 'low' },
+    { emoji: '😋', unicode: 'U+1F60B', score: 75, primary: 'Joy', secondary: 'Satisfaction', arousal: 'medium' },
+    { emoji: '😄', unicode: 'U+1F604', score: 78, primary: 'Joy', secondary: 'Cheerfulness', arousal: 'medium' },
+    { emoji: '😎', unicode: 'U+1F60E', score: 80, primary: 'Joy', secondary: 'Confidence', arousal: 'medium' },
+    { emoji: '😍', unicode: 'U+1F60D', score: 85, primary: 'Love', secondary: 'Adoration', arousal: 'medium' },
+    { emoji: '🤩', unicode: 'U+1F929', score: 88, primary: 'Excitement', secondary: 'Amazement', arousal: 'high' },
+    { emoji: '😂', unicode: 'U+1F602', score: 90, primary: 'Excitement', secondary: 'Laughter', arousal: 'high' },
+    { emoji: '🥰', unicode: 'U+1F970', score: 95, primary: 'Love', secondary: 'Affection', arousal: 'medium' },
+    { emoji: '😁', unicode: 'U+1F601', score: 100, primary: 'Love', secondary: 'Ecstasy', arousal: 'high' }
+  ];
+
+  app.innerHTML = `
+    <div class="container">
+      <h1>Add New Item</h1>
+      <form id="addItemForm">
+        <div class="form-group">
+          <label for="itemType">Type:</label>
+          <select id="itemType" required>
+            ${localConfig.entryTypes.map(type => `<option value="${type}">${type}</option>`).join('')}
+            <option value="Mood">Mood</option>
+          </select>
+        </div>
+        
+        <div id="moodFields" style="display: none;">
           <div class="form-group">
-            <label for="itemType">Type:</label>
-            <select id="itemType" required>
-              ${localConfig.entryTypes.map(type => `<option value="${type}">${type}</option>`).join('')}
-            </select>
-          </div>
-          
-          <div id="moodFields" style="display: none;">
-            <div class="form-group">
-              <label for="moodPrimary">Primary Mood:</label>
-              <select id="moodPrimary">
-                ${[...new Set(moodData.map(row => row[2]))].map(primary => `<option value="${primary}">${primary}</option>`).join('')}
-              </select>
+            <label for="moodSlider">How are you feeling?</label>
+            <div class="slider-container">
+              <span class="slider-label">Bad</span>
+              <input type="range" id="moodSlider" min="1" max="100" value="50">
+              <span class="slider-label">Good</span>
             </div>
-            <div id="moodSecondaryContainer" class="form-group"></div>
-            <div id="moodTertiaryContainer" class="form-group"></div>
-          </div>
-  
-          <div class="form-group">
-            <label for="itemTitle">Title:</label>
-            <input type="text" id="itemTitle" required>
+            <div class="slider-value">Value: <span id="moodValue">50</span></div>
           </div>
           
           <div class="form-group">
-            <label for="itemContent">Content:</label>
-            <textarea id="itemContent" required></textarea>
-          </div>
-          
-          <div class="form-actions">
-            <button type="button" id="backButton" class="btn btn-secondary">Back</button>
-            <button type="submit" class="btn btn-primary">Save Item</button>
-          </div>
-        </form>
-      </div>
-    `;
+          <label for="itemTitle">Title:</label>
+          <input type="text" id="itemTitle">
+          <small class="form-text text-muted" id="titleHelp">Optional for mood entries - current date/time will be used.</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="itemContent" id="contentLabel">Content:</label>
+          <textarea id="itemContent" required></textarea>
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" id="backButton" class="btn btn-secondary">Back</button>
+          <button type="submit" class="btn btn-primary">Save Item</button>
+        </div>
+      </form>
+    </div>
+  `;
+
+  // Trigger the change event to set initial state
+  const itemTypeSelect = document.getElementById('itemType');
   
-    // Show/hide mood fields based on item type
-    document.getElementById('itemType').addEventListener('change', function () {
-      const moodFields = document.getElementById('moodFields');
-      if (this.value === 'Mood') {
-        moodFields.style.display = 'block';
-      } else {
-        moodFields.style.display = 'none';
-      }
-    });
+  // Show/hide mood fields based on item type and update labels
+  itemTypeSelect.addEventListener('change', function () {
+    const moodFields = document.getElementById('moodFields');
+    const titleField = document.getElementById('titleField');
+    const titleInput = document.getElementById('itemTitle');
+    const contentLabel = document.getElementById('contentLabel');
+    const titleHelp = document.getElementById('titleHelp');
+    
+    if (this.value === 'Mood') {
+      moodFields.style.display = 'block';
+      titleInput.required = false;
+      titleHelp.style.display = 'block';
+      contentLabel.textContent = 'Comment:';
+      
+      // Initialize mood selection UI
+      updateMoodSelection();
+    } else {
+      moodFields.style.display = 'none';
+      titleInput.required = true;
+      titleHelp.style.display = 'none';
+      contentLabel.textContent = 'Content:';
+    }
+  });
+
+  // Handle mood slider changes
+  const moodSlider = document.getElementById('moodSlider');
+  const moodValue = document.getElementById('moodValue');
+  const intensitySlider = document.getElementById('intensitySlider');
+  const intensityValue = document.getElementById('intensityValue');
   
-    // Populate secondary and tertiary mood options
-    document.getElementById('moodPrimary').addEventListener('change', function () {
-      const selectedPrimary = this.value;
-      const secondaryOptions = [...new Set(moodData.filter(row => row[2] === selectedPrimary).map(row => row[1]))];
-      const secondaryContainer = document.getElementById('moodSecondaryContainer');
-      secondaryContainer.innerHTML = `
-        <label for="moodSecondary">Secondary Mood:</label>
-        <select id="moodSecondary">
-          ${secondaryOptions.map(secondary => `<option value="${secondary}">${secondary}</option>`).join('')}
-        </select>
-      `;
+  moodSlider.addEventListener('input', function() {
+    moodValue.textContent = this.value;
+    updateMoodSelection();
+  });
   
-      // Update tertiary options when secondary mood changes
-      document.getElementById('moodSecondary').addEventListener('change', function () {
-        const selectedSecondary = this.value;
-        const tertiaryOptions = moodData
-          .filter(row => row[2] === selectedPrimary && row[1] === selectedSecondary)
-          .map(row => row[0]);
-        const tertiaryContainer = document.getElementById('moodTertiaryContainer');
-        tertiaryContainer.innerHTML = `
-          <label for="moodTertiary">Tertiary Mood:</label>
-          ${tertiaryOptions.map(tertiary => `<button type="button" class="btn mood-btn" data-value="${tertiary}">${tertiary}</button>`).join('')}
-        `;
+  intensitySlider.addEventListener('input', function() {
+    intensityValue.textContent = this.value;
+    updateMoodSelection();
+  });
   
-        // Handle tertiary mood button clicks
-        document.querySelectorAll('.mood-btn').forEach(button => {
-          button.addEventListener('click', function () {
-            alert(`Selected Mood: ${this.dataset.value}`);
-          });
-        });
+  let selectedEmoji = null;
+  
+  // Function to update mood selection based on sliders
+  function updateMoodSelection() {
+    const moodScore = parseInt(moodSlider.value);
+    const intensity = parseInt(intensitySlider.value);
+    
+    // Get matching emotions based on mood score and intensity
+    const matchingEmotions = getMatchingEmoticons(moodScore, intensity, 8);
+    
+    // Display emotions as icons
+    const emotionIconsContainer = document.getElementById('emotionIcons');
+    emotionIconsContainer.innerHTML = matchingEmotions.map(emotion => {
+      return `<div class="emotion-icon ${selectedEmoji === emotion.emoji ? 'selected' : ''}" 
+                  data-emoji="${emotion.emoji}" 
+                  data-primary="${emotion.primary}"
+                  data-secondary="${emotion.secondary}">
+                <span class="emoji">${emotion.emoji}</span>
+                <span class="emotion-label">${emotion.secondary}</span>
+              </div>`;
+    }).join('');
+    
+    // Add click event listeners to the emotion icons
+    document.querySelectorAll('.emotion-icon').forEach(icon => {
+      icon.addEventListener('click', function() {
+        // Remove selected class from all icons
+        document.querySelectorAll('.emotion-icon').forEach(el => el.classList.remove('selected'));
+        
+        // Add selected class to clicked icon
+        this.classList.add('selected');
+        
+        // Store selected emoji and update details
+        selectedEmoji = this.dataset.emoji;
+        const primary = this.dataset.primary;
+        
+        // Update tertiary emotions based on the selected primary emotion
+        updateTertiaryEmotions(primary);
       });
     });
+    
+    // If no emotion is selected yet, auto-select the closest one
+    if (!selectedEmoji && matchingEmotions.length > 0) {
+      const closestEmotion = matchingEmotions[0];
+      selectedEmoji = closestEmotion.emoji;
+      
+      // Update tertiary emotions
+      updateTertiaryEmotions(closestEmotion.primary);
+      
+      // Select the icon
+      setTimeout(() => {
+        const firstIcon = document.querySelector('.emotion-icon');
+        if (firstIcon) firstIcon.classList.add('selected');
+      }, 0);
+    }
+  }
   
-    // Back button functionality
-    document.getElementById('backButton').addEventListener('click', renderHomePage);
-  
-    // Form submission
-    document.getElementById('addItemForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const newItem = {
-        id: Date.now(),
-        type: document.getElementById('itemType').value,
-        title: document.getElementById('itemTitle').value,
-        content: document.getElementById('itemContent').value,
-        mood: {
-          primary: document.getElementById('moodPrimary')?.value || null,
-          secondary: document.getElementById('moodSecondary')?.value || null,
-          tertiary: document.querySelector('.mood-btn.selected')?.dataset.value || null,
-        },
-        createdAt: new Date().toISOString(),
+  // Function to update tertiary emotions based on primary emotion
+  function updateTertiaryEmotions(primaryEmotion) {
+    // Find matching emotion in emotionData
+    const matchingEmotion = emotionData.find(emotion => 
+      emotion.primary.en.toLowerCase() === primaryEmotion.toLowerCase()
+    );
+    
+    if (matchingEmotion) {
+      // Collect all tertiary emotions from all secondary emotions
+      const tertiaryEmotions = [];
+      matchingEmotion.secondaryEmotions.forEach(secondary => {
+        secondary.tertiaryEmotions.forEach(tertiary => {
+          if (tertiary.en) {
+            tertiaryEmotions.push(tertiary);
+          }
+        });
+      });
+      
+      // Display tertiary emotion buttons
+      const tertiaryContainer = document.getElementById('tertiaryEmotionButtons');
+      tertiaryContainer.innerHTML = tertiaryEmotions.map(tertiary => 
+        `<button type="button" class="btn mood-btn tertiary-mood" data-value="${tertiary.en}">${tertiary.en}</button>`
+      ).join('');
+      
+      // Add event listeners for tertiary emotions
+      document.querySelectorAll('.tertiary-mood').forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Remove selected class from all tertiary buttons
+          document.querySelectorAll('.tertiary-mood').forEach(btn => 
+            btn.classList.remove('selected')
+          );
+          
+          // Add selected class to clicked button
+          this.classList.add('selected');
+        });
+      });
+    } else {
+      // If no matching primary emotion is found
+      document.getElementById('tertiaryEmotionButtons').innerHTML = 
+        '<p>No specific emotions available for this selection.</p>';
+    }
+  }
+
+  // Back button functionality
+  document.getElementById('backButton').addEventListener('click', renderHomePage);
+
+  // Form submission
+  document.getElementById('addItemForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    const itemType = document.getElementById('itemType').value;
+    let title = document.getElementById('itemTitle').value.trim();
+    
+    // For mood entries, use current date/time as title if empty
+    if (itemType === 'Mood' && !title) {
+      const now = new Date();
+      title = `Mood - ${now.toLocaleString()}`;
+    }
+    
+    const newItem = {
+      id: Date.now(),
+      type: itemType,
+      title: title,
+      content: document.getElementById('itemContent').value,
+      createdAt: new Date().toISOString(),
+    };
+    
+    // Add mood data if it's a mood entry
+    if (itemType === 'Mood') {
+      const selectedTertiary = document.querySelector('.tertiary-mood.selected')?.dataset.value || null;
+      const selectedEmotionData = emotionIcons.find(e => e.emoji === selectedEmoji);
+      
+      newItem.mood = {
+        level: document.getElementById('moodSlider').value,
+        intensity: document.getElementById('intensitySlider').value,
+        emoji: selectedEmoji,
+        primary: selectedEmotionData?.primary || null,
+        secondary: selectedEmotionData?.secondary || null,
+        tertiary: selectedTertiary
       };
+    }
+
+    const items = JSON.parse(localStorage.getItem('logseqItems') || '[]');
+    items.push(newItem);
+    localStorage.setItem('logseqItems', JSON.stringify(items));
+
+    alert('Item saved successfully!');
+    renderHomePage();
+  });
   
-      const items = JSON.parse(localStorage.getItem('logseqItems') || '[]');
-      items.push(newItem);
-      localStorage.setItem('logseqItems', JSON.stringify(items));
+  // Add the following CSS dynamically
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+    .slider-container {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+    
+    .slider-label {
+      width: 50px;
+      text-align: center;
+    }
+    
+    .slider-value {
+      text-align: right;
+      font-size: 0.9em;
+      color: #666;
+      margin-top: 2px;
+    }
+    
+    .mood-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0;
+    }
+    
+    .mood-btn {
+      border: 1px solid #ddd;
+      padding: 8px 12px;
+      margin: 5px;
+      border-radius: 20px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .mood-btn:hover {
+      background-color: #e0e0e0;
+    }
+    
+    .mood-btn.selected {
+      background-color: #4a86e8;
+      color: white;
+      border-color: #366dc0;
+    }
+    
+    .emotion-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 15px 0;
+      justify-content: center;
+    }
+    
+    .emotion-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.2s;
+      width: 80px;
+      text-align: center;
+    }
+    
+    .emotion-icon:hover {
+      background-color: #e9e9e9;
+    }
+    
+    .emotion-icon.selected {
+      background-color: #4a86e8;
+      color: white;
+    }
+    
+    .emotion-icon .emoji {
+      font-size: 2.5em;
+      margin-bottom: 4px;
+    }
+    
+    .emotion-icon .emotion-label {
+      font-size: 0.8em;
+      word-wrap: break-word;
+    }
+    
+    .selected-emotion {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    
+    .selected-emoji {
+      font-size: 3em;
+      margin-right: 15px;
+    }
+    
+    .emotion-details {
+      flex: 1;
+    }
+    
+    .emotion-primary {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    
+    .emotion-secondary {
+      color: #666;
+    }
+    
+    #tertiaryEmotionsContainer {
+      background-color: #f8f8f8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+    
+    .tertiary-group {
+      margin-bottom: 15px;
+      background: #f9f9f9;
+      border-radius: 6px;
+      padding: 10px;
+    }
+    
+    .tertiary-group h4 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: #555;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+    
+    .tertiary-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    
+    .emotion-icons {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 10px;
+      margin: 15px 0;
+      justify-content: center;
+    }
+    
+    @media (max-width: 600px) {
+      .emotion-icons {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  `;
+
+
+
+
+
+
+
+
+  document.head.appendChild(styleElement);
   
-      alert('Item saved successfully!');
-      renderHomePage();
-    });
+  // Set initial view if Mood is preselected
+  if (itemTypeSelect.value === 'Mood') {
+    itemTypeSelect.dispatchEvent(new Event('change'));
+  }
   }
 
   function renderItemsList(items) {

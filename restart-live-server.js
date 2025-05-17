@@ -32,7 +32,7 @@ function runCommand(command, description) {
 
     // Start http-server
     await runCommand(
-      'http-server'
+      'http-server',
       'Starting http-server on port 5501'
     );
 
