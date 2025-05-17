@@ -1,21 +1,32 @@
 {
-  "name": "logseqinvulller",
+  "name": "logseqinvuller",
   "version": "1.0.0",
-  "description": "",
-  "main": "setup.js",
+  "description": "AI assistant for Logseq to enhance note-taking, knowledge management, and productivity",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack --watch"
   },
-  "keywords": [],
+  "keywords": [
+    "logseq",
+    "ai",
+    "notes",
+    "knowledge-management",
+    "productivity"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "copy-webpack-plugin": "^13.0.0",
+    "css-loader": "^7.1.2",
     "csv-loader": "^3.0.5",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
     "webpack": "^5.99.7",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
   },
   "dependencies": {
     "acorn": "^8.14.1",

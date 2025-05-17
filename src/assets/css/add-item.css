@@ -1,0 +1,142 @@
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 4px;
+  background-color: var(--container-bg, white);
+  color: var(--text-color, #333);
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.slider-label {
+  width: 50px;
+  text-align: center;
+}
+
+.slider-value {
+  text-align: right;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 2px;
+}
+
+.emotion-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.emotion-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.emotion-icon:hover {
+  background-color: #e9e9e9;
+}
+
+.emotion-icon.selected {
+  background-color: var(--primary-color, #4a69bd);
+  color: white;
+}
+
+.emotion-icon .emoji {
+  font-size: 2.5em;
+  margin-bottom: 4px;
+}
+
+.emotion-icon .emotion-label {
+  font-size: 0.8em;
+  word-wrap: break-word;
+}
+
+.tertiary-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 10px 0;
+}
+
+.mood-btn {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.mood-btn.selected {
+  background-color: var(--primary-color, #4a69bd);
+  color: white;
+}
+
+.tag-suggestions {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag-pill {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  padding: 3px 10px;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+.tag-pill:hover {
+  background-color: #e0e0e0;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Dark mode support */
+.dark-mode .emotion-icon:hover {
+  background-color: #444;
+}
+
+.dark-mode .mood-btn {
+  background-color: #444;
+  border-color: #555;
+}
+
+.dark-mode .tag-pill {
+  background-color: #444;
+}
+
+.dark-mode .tag-pill:hover {
+  background-color: #555;
+}
